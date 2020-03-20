@@ -1,0 +1,3 @@
+# Modules
+_sources ${DOTFILES}/files/zsh/modules/**/zshrc.zsh(N-.)
+_sources ${DOTFILES}/files/zsh/modules/**/zshrc.local.zsh(N-.)

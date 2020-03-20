@@ -1,0 +1,9 @@
+[ghq]
+	root = ~/src
+
+[user]
+	email = ag.you2be@gmail.com
+	name = gin2be
+
+[core]
+	editor = vim

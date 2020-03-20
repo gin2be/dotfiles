@@ -1,0 +1,9 @@
+source $HOME/.zsh/init.zsh
+
+fpath=($fpath ${DOTFILES}/files/zsh/functions(N-/))
+for file in ${DOTFILES}/files/zsh/functions/*(N-.); do
+  autoload -U $(basename $file)
+done
+
+_sources ${DOTFILES}/files/zsh/modules/**/zshenv.zsh(N-.)
+_sources ${DOTFILES}/files/zsh/modules/**/zshenv.local.zsh(N-.)
