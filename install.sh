@@ -51,10 +51,6 @@ function download_dotfiles() {
 echo "Installing dotfiles..."
 echo "=============================="
 
-sudo apt update
-
-exit 0
-
 echo -e "\\nDownloading dotfiles repository..."
 download_dotfiles
 
