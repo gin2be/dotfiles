@@ -15,7 +15,7 @@ function install_dotfiles() {
   to="$HOME/.config/nvim/init.vim"
   echo "  creating symlink ${from} -> ${to}"
   ln -sf "${from}" "${to}"
-  from="${DOTFILES}/files/nvim/coc-setting.json"
+  from="${DOTFILES}/files/nvim/coc-settings.json"
   to="$HOME/.config/nvim/coc-settings.json"
   echo "  creating symlink ${from} -> ${to}"
   ln -sf "${from}" "${to}"
