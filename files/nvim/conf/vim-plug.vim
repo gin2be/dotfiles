@@ -1,28 +1,18 @@
-call plug#begin(stdpath('data') . '/plugged')
+call plug#begin(expand("~/.local/share/nvim/plugged"))
 
-" base
 Plug 'junegunn/vim-plug'
 Plug 'Shougo/vimproc.vim', {'do': 'make'}
 
-" ide
 Plug 'w0ng/vim-hybrid'
+
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'kassio/neoterm'
 Plug 'junegunn/fzf', { 'do': './install --bin --xdg' }
 Plug 'junegunn/fzf.vim'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
-" text
-Plug 'tpope/vim-surround'
-
-" completions
-
-" langs
-
-" snippet
-
-" others
-Plug 'tpope/vim-fugitive'
-Plug 'airblade/vim-gitgutter'
+" golang
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 call plug#end()
 
@@ -31,7 +21,6 @@ function! s:plugs.is_installed(name)
   return has_key(self.plugs, a:name) ? isdirectory(self.plugs[a:name].dir) : 0
 endfunction
 
-" plugin configs
 if s:plugs.is_installed('nerdtree')
   nnoremap <silent><F3> :NERDTreeToggle<CR>
 endif
@@ -50,10 +39,6 @@ if s:plugs.is_installed('neoterm')
   tnoremap <silent> <ESC> <C-\><C-n>
 endif
 
-if s:plugs.is_installed('vim-gitgutter')
-  let g:gitgutter_sign_added = '+'
-  let g:gitgutter_sign_modified = '~'
-  let g:gitgutter_sign_removed = '-'
-  nmap ]h <Plug>(GitGutterNextHunk)
-  nmap [h <Plug>(GitGutterPrevHunk)
+if s:plugs.is_installed('coc.nvim')
+  runtime! conf/plugins/coc.vim
 endif
