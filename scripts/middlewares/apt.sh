@@ -11,7 +11,7 @@ APT_PACKAGES+=( build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev
 APT_PACKAGES+=( libncurses5-dev libncursesw5-dev xz-utils tk-dev libffi-dev liblzma-dev python-openssl )
 
 # neovim
-SOURCELINES+=( "ppa:neovim-ppa/stable" )
+SOURCELINES+=( "ppa:neovim-ppa/unstable" )
 APT_PACKAGES+=( neovim xsel )
 
 # nodejs
