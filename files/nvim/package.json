@@ -4,6 +4,7 @@
     "coc-go": ">=0.7.0",
     "coc-html": ">=1.2.3",
     "coc-json": ">=1.2.5",
+    "coc-sh": ">=0.4.0",
     "coc-snippets": ">=2.1.22",
     "coc-tsserver": ">=1.4.12"
   }
