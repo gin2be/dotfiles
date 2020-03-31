@@ -2,39 +2,57 @@
 
 set -e
 
-function log_failure() {
-  echo -e "\033[31m✗\033[00m \033[01m$@\033[00m"
+function task_spinner() {
+  local spin=$1; shift
+  local message=$@
+  echo -en "  $spin  \033[01m$message\033[00m" "\r"
 }
 
-function log_success() {
-  echo -e "\033[32m✔\033[00m \033[01m$@\033[00m"
+function subtask_spinner() {
+  local spin=$1; shift
+  local message=$@
+  echo -en "   $spin  \033[01m$message\033[00m" "\r"
+}
+
+function task_failure() {
+  echo -e "  \033[31m✗\033[00m  \033[01m$@\033[00m"
+}
+
+function task_success() {
+  echo -e "  \033[32m✔\033[00m  \033[01m$@\033[00m"
 }
 
 function spinner() {
-  local pid=$1; shift
+  local func=$1; shift
   local message=$@
   local chars="⠋⠙⠹⠸⠼⠴⠦⠧⠇⠏"
-  local delay=0.2
+  local delay=0.1
+
+  local result="$(eval "($func) &")"
+  local pid=$!
 
   while [ "$(ps a | awk '{print $1}' | grep $pid)" ]; do
     for (( i=0; i<${#chars}; i++ )); do
-      echo -en "${chars:$i:1} " "$message" "\r"
+      task_spinner "${chars:$i:1}" "$message"
       sleep $delay
     done
   done
   if wait $pid; then
-    log_success "$message"
+    task_success "$message"
   else
-    log_failure "$message"
+    task_failure "$message"
   fi
+  echo $result
 }
 
 function longprocess() {
-  sleep 1
+  sleep 2
+  sleep 3
+  sleep 4
+  echo 'Hello'
 }
 
-(longprocess 1>/dev/null 2>&1) &
-spinner $! wait 2 seconds
+spinner "longprocess" "wait 1 seconds"
 
 #DOTFILES_REPO="https://github.com/gin2be/dotfiles"
 #
