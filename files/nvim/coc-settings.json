@@ -8,5 +8,50 @@
       "filetypes": ["sh"],
       "ignoredRootPaths": ["~"]
     }
+  },
+  "diagnostic-languageserver.filetypes": {
+    "php": ["phpstan", "phpcs", "phpmd"]
+  },
+  "diagnostic-languageserver.linters": {
+    "phpcs": {
+      "command": "./vendor/bin/phpcs",
+      "debounce": 100,
+      "rootPatterns": [ "composer.json", "composer.lock", "vendor", ".git" ],
+      "args": [ "--standard=phpcs.xml", "--report=emacs", "-s", "-" ],
+      "offsetLine": 0,
+      "offsetColumn": 0,
+      "sourceName": "phpcs",
+      "formatLines": 1,
+      "formatPattern": [
+        "^.*:(\\d+):(\\d+):\\s+(.*)\\s+-\\s+(.*)(\\r|\\n)*$",
+        {
+          "line": 1,
+          "column": 2,
+          "message": 4,
+          "security": 3
+        }
+      ],
+      "securities": {
+        "error": "error",
+        "warning": "warning"
+      }
+    },
+    "phpmd": {
+      "command": "./vendor/bin/phpmd",
+      "debounce": 100,
+      "rootPatterns": [ "composer.json", "composer.lock", "vendor", ".git" ],
+      "args": [ "%file", "text", "phpmd.xml", "--suffixes" ],
+      "offsetLine": 0,
+      "offsetColumn": 0,
+      "sourceName": "phpmd",
+      "formatLines": 1,
+      "formatPattern": [
+        "^.*:(\\d+)\\s*(.+)$",
+        {
+          "line": 1,
+          "message": 2
+        }
+      ]
+    }
   }
 }
