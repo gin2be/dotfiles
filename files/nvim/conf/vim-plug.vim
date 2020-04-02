@@ -10,8 +10,10 @@ Plug 'kassio/neoterm'
 Plug 'junegunn/fzf', { 'do': './install --bin --xdg' }
 Plug 'junegunn/fzf.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'editorconfig/editorconfig-vim'
 
-" golang
+Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
 
 call plug#end()
 
@@ -40,4 +42,12 @@ endif
 
 if s:plugs.is_installed('coc.nvim')
   runtime! conf/plugins/coc.vim
+endif
+
+if s:plugs.is_installed('vim-gitgutter')
+  let g:gitgutter_sign_added = '+'
+  let g:gitgutter_sign_modified = '~'
+  let g:gitgutter_sign_removed = '-'
+  nmap ]h <Plug>(GitGutterNextHunk)
+  nmap [h <Plug>(GitGutterPrevHunk)
 endif
