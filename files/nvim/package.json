@@ -3,10 +3,11 @@
     "coc-diagnostic": ">=0.2.4",
     "coc-eslint": ">=1.2.6",
     "coc-go": ">=0.7.0",
-    "coc-html": ">=1.2.3",
+    "coc-html": ">=1.2.4",
     "coc-json": ">=1.2.5",
     "coc-phpls": ">=2.1.8",
-    "coc-snippets": ">=2.1.22",
+    "coc-sh": ">=0.4.0",
+    "coc-snippets": ">=2.1.23",
     "coc-tsserver": ">=1.4.12",
     "coc-vetur": ">=1.1.10",
     "coc-xml": ">=1.11.0"
