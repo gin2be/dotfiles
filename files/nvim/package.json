@@ -7,8 +7,8 @@
     "coc-json": ">=1.2.5",
     "coc-phpls": ">=2.1.8",
     "coc-sh": ">=0.4.0",
-    "coc-snippets": ">=2.1.23",
-    "coc-tsserver": ">=1.4.12",
+    "coc-snippets": ">=2.1.24",
+    "coc-tsserver": ">=1.4.13",
     "coc-vetur": ">=1.1.10",
     "coc-xml": ">=1.11.0"
   }
